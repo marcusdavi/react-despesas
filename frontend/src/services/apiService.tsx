@@ -1,14 +1,14 @@
-import { IDespesa } from "../interfaces/Interfaces";
+import { IExpenditure } from "../interfaces/Interfaces";
 
-export function getDespesasEndpoint(): Promise<IDespesa[]> {
+export function getExpendituresEndpoint(): Promise<IExpenditure[]> {
   return fetch("http://localhost:3001/despesas").then((resp) => {
     return resp.json();
   });
 }
 
-export async function getDespesasMonthYearEndpoint(
+export async function getExpendituresMonthYearEndpoint(
   mesAno: string
-): Promise<IDespesa[]> {
+): Promise<IExpenditure[]> {
   return await fetch(
     `http://localhost:3001/despesas?mes=${mesAno}&_sort=dia`
   ).then((resp) => {

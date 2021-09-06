@@ -5,7 +5,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import DespesaPage from "./pages/DespesaPage";
+import ExpenditurePage from "./pages/ExpenditurePage";
 import { getMonthYearToday } from "./helpers/dateHelpers";
 
 export default function App() {
@@ -14,10 +14,10 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/despesas/:monthYear">
-          <DespesaPage />
+        <Route path="/expenditures/:monthYear">
+          <ExpenditurePage />
         </Route>
-        <Redirect to={{ pathname: "/despesas/" + monthYear }} />
+        <Redirect to={{ pathname: "/expenditures/" + monthYear }} />
       </Switch>
     </Router>
   );

@@ -1,4 +1,4 @@
-export interface IDespesa{
+export interface IExpenditure{
   id: number;
   descricao: string;
   categoria: string;
@@ -7,13 +7,13 @@ export interface IDespesa{
   dia: string
 }
 
-export interface IDespesaTableProps{
-  despesas: IDespesa[];
+export interface IExpenditureTableProps{
+  expenditures: IExpenditure[];
 }
 
-export interface IDespesaHeaderProps{
+export interface IExpenditureHeaderProps{
   total: string
   month: string;
   year: string;
-  years: string[];
+  yearsSelect: string[];
 }

@@ -1,5 +1,5 @@
 import { Box, FormControl } from "@material-ui/core";
-import { IDespesaHeaderProps } from "../interfaces/Interfaces";
+import { IExpenditureHeaderProps } from "../interfaces/Interfaces";
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -7,19 +7,19 @@ import Select from '@material-ui/core/Select';
 import { useState} from "react";
 import { useHistory } from "react-router-dom";
 
-const meses: string[] = [
-  "Janeiro",
-  "Fevereiro",
-  "Março",
-  "Abril",
-  "Maio",
-  "Junho",
-  "Julho",
-  "Agosto",
-  "Setembro",
-  "Outubro",
-  "Novembro",
-  "Dezembro",
+const allMonths: string[] = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 ];
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -34,54 +34,57 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function DespesaHeader(props: IDespesaHeaderProps) {
-  const { total, month, year, years } = props;
+export default function ExpenditureHeader(props: IExpenditureHeaderProps) {
+  const { total, month, year, yearsSelect } = props;
   const classes = useStyles();
   const history = useHistory();
-  const [mesSelected, setMesSelected] = useState<string>(month);
-  const [anoSelected, setAnoSelected] = useState<string>(year);
+  const [monthSelected, setMonthSelected] = useState<string>(month);
+  const [yearSelected, setYearSelected] = useState<string>(year);
 
   function handleMonthChange(event: React.ChangeEvent<{ value: unknown }>){
-    const mes = event.target.value as string
-    setMesSelected(mes);
-
-    history.push(`/despesas/${anoSelected}-${mes}`);
+    const newMonth = event.target.value as string
+    setMonthSelected(newMonth);
+    toExpendituresMonth(yearSelected, newMonth);
   };
 
   function handleYearChange(event: React.ChangeEvent<{ value: unknown }>){
-    const ano = event.target.value as string
-    setAnoSelected(ano);
-    history.push(`/despesas/${ano}-${mesSelected}`);
+    const newYear = event.target.value as string
+    setYearSelected(newYear);
+    toExpendituresMonth(newYear, monthSelected);
   };
+
+  function toExpendituresMonth(year:string, month:string){
+    history.push(`/expenditures/${year}-${month}`);
+  }
   return (
     <Box display="flex" alignItems="center">
       <Box flex="1" margin="8px">
       <FormControl className={classes.formControl}>
-        <InputLabel id="select-mes-label">Mês</InputLabel>
+        <InputLabel id="select-month-label">Month</InputLabel>
         <Select
-          labelId="select-mes-label"
-          value={mesSelected}
+          labelId="select-month-label"
+          value={monthSelected}
           onChange={handleMonthChange}
         > 
-        {meses.map((mes, index) => {
+        {allMonths.map((monthName, index) => {
         const valor = (index+1).toString().padStart(2, "0");;
-        return <MenuItem key={index} value={valor}>{mes}</MenuItem>})}
+        return <MenuItem key={index} value={valor}>{monthName}</MenuItem>})}
         </Select>
       </FormControl>
       <FormControl className={classes.formControl}>
-        <InputLabel id="select-ano-label">Ano</InputLabel>
+        <InputLabel id="select-year-label">Year</InputLabel>
         <Select
-          labelId="select-ano-label"
-          value={anoSelected}
+          labelId="select-year-label"
+          value={yearSelected}
           onChange={handleYearChange}
         > 
-        {years.map((year) => {
+        {yearsSelect.map((year) => {
         return <MenuItem key={year} value={year}>{year}</MenuItem>})}
         </Select>
       </FormControl>
       </Box>
       <Box id="total" margin="8px">
-        Despesa total: <strong>{total}</strong>
+        Total Expenditure: <strong>{total}</strong>
       </Box>
     </Box>
   );

@@ -6,7 +6,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { IDespesaTableProps } from '../interfaces/Interfaces';
+import { IExpenditureTableProps } from '../interfaces/Interfaces';
 import { formatNumber } from '../helpers/numberHelpers';
 
 const useStyles = makeStyles({
@@ -22,8 +22,8 @@ const useStyles = makeStyles({
   }
 });
 
-export default function DespesaTable(props: IDespesaTableProps) {
-  const {despesas} = props;
+export default function ExpenditureTable(props: IExpenditureTableProps) {
+  const {expenditures} = props;
   const classes = useStyles();
 
   return (
@@ -31,21 +31,21 @@ export default function DespesaTable(props: IDespesaTableProps) {
       <Table className={classes.table} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow className={classes.header}>
-            <TableCell>Despesa</TableCell>
-            <TableCell>Categoria</TableCell>
-            <TableCell>Dia</TableCell>
-            <TableCell align="right">Valor</TableCell>
+            <TableCell>Expenditure</TableCell>
+            <TableCell>Category</TableCell>
+            <TableCell>Day</TableCell>
+            <TableCell align="right">Value</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {despesas.map((despesa, index) => (
+          {expenditures.map((expenditure, index) => (
             <TableRow key={index}>
               <TableCell component="th" scope="row">
-                {despesa.descricao}
+                {expenditure.descricao}
               </TableCell>
-              <TableCell>{despesa.categoria}</TableCell>
-              <TableCell>{despesa.dia}</TableCell>
-              <TableCell align="right">{formatNumber(despesa.valor)}</TableCell>
+              <TableCell>{expenditure.categoria}</TableCell>
+              <TableCell>{expenditure.dia}</TableCell>
+              <TableCell align="right">{formatNumber(expenditure.valor)}</TableCell>
             </TableRow>
           ))}
         </TableBody>
