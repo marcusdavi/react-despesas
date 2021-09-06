@@ -28,6 +28,6 @@ O objetivo do app é mostrar o uso dos hooks useState, useEffect, useHistory, be
 
 ## Imagem do App
 <p align="center">
-  <img src="/src/img/print-home.png">
+  <img src="/print-sistema.png">
 </p>
 
