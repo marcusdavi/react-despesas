@@ -6,10 +6,9 @@ import {
   Redirect,
 } from "react-router-dom";
 import ExpenditurePage from "./pages/ExpenditurePage";
-import { getMonthYearToday } from "./helpers/dateHelpers";
 
 export default function App() {
-  const monthYear = getMonthYearToday();
+  const monthYear:string = "2021-01";
 
   return (
     <Router>

@@ -1,10 +1,10 @@
 export interface IExpenditure{
   id: number;
-  descricao: string;
-  categoria: string;
-  valor: number;
-  mes: string;
-  dia: string
+  description: string;
+  category: string;
+  totalValue: number;
+  monthYear: string;
+  day: string
 }
 
 export interface IExpenditureTableProps{

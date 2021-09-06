@@ -25,9 +25,7 @@ const useStyles = makeStyles({
 export default function ExpenditureTable(props: IExpenditureTableProps) {
   const {expenditures} = props;
   const classes = useStyles();
-
-  return (
-    <TableContainer component={Paper}>
+   return (<TableContainer component={Paper}>
       <Table className={classes.table} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow className={classes.header}>
@@ -41,15 +39,14 @@ export default function ExpenditureTable(props: IExpenditureTableProps) {
           {expenditures.map((expenditure, index) => (
             <TableRow key={index}>
               <TableCell component="th" scope="row">
-                {expenditure.descricao}
+                {expenditure.description}
               </TableCell>
-              <TableCell>{expenditure.categoria}</TableCell>
-              <TableCell>{expenditure.dia}</TableCell>
-              <TableCell align="right">{formatNumber(expenditure.valor)}</TableCell>
+              <TableCell>{expenditure.category}</TableCell>
+              <TableCell>{expenditure.day}</TableCell>
+              <TableCell align="right">{formatNumber(expenditure.totalValue)}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
-    </TableContainer>
-  );
+    </TableContainer>);
 }

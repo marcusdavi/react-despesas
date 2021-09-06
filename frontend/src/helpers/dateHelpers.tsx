@@ -1,13 +1,17 @@
-export function getMonthYearToday() {
-  const date = new Date();
-  const year = date.getFullYear();
-  const month = formatMonth(date.getMonth() + 1);
-  return `${year}-${month}`;
-}
-
-function formatMonth(month: number) {
-  return month.toString().padStart(2, "0");
-}
+export const allMonths: string[] = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 
 export function getYear(monthYear: string) {
   return monthYear.substring(0, 4);
@@ -15,4 +19,9 @@ export function getYear(monthYear: string) {
 
 export function getMonth(monthYear: string) {
   return monthYear.substring(5, 7);
+}
+
+export function getMonthName(month: string) {
+  const index = parseInt(month, 10) - 1;
+  return allMonths[index];
 }

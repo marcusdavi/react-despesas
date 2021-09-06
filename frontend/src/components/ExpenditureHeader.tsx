@@ -6,21 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import { useState} from "react";
 import { useHistory } from "react-router-dom";
-
-const allMonths: string[] = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
+import { allMonths } from "../helpers/dateHelpers";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
