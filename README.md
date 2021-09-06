@@ -21,7 +21,7 @@ O objetivo do app é mostrar o uso dos hooks useState, useEffect, useHistory, be
 * Baixar as dependências - rodar o comando ``` yarn ```
 * Inicializar o app - rodar o comando ``` yarn start ```
 
-## Como rodar o frontend (
+## Como rodar o frontend
 * Entrar na pasta backend
 * Baixar as dependências - rodar o comando ``` yarn ```
 * Inicializar o app - rodar o comando ``` yarn start ```
