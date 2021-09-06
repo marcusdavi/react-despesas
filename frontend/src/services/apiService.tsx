@@ -1,4 +1,4 @@
-import { IDespesa } from "../interfaces/IDespesa";
+import { IDespesa } from "../interfaces/Interfaces";
 
 export function getDespesasEndpoint(): Promise<IDespesa[]> {
   return fetch("http://localhost:3001/despesas").then((resp) => {

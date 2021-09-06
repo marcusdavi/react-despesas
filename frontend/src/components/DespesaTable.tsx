@@ -6,7 +6,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { IDespesa } from '../interfaces/IDespesa';
+import { IDespesaTableProps } from '../interfaces/Interfaces';
 
 const useStyles = makeStyles({
   table: {
@@ -14,10 +14,6 @@ const useStyles = makeStyles({
     minWidth: 650,
   },
 });
-
-interface IDespesaTableProps{
-  despesas: IDespesa[];
-}
 
 export default function DespesaTable(props: IDespesaTableProps) {
   const {despesas} = props;

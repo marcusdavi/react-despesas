@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import DespesaHeader from "../components/DespesaHeader";
 import DespesaTable from "../components/DespesaTable";
 import { getMonth, getYear } from "../helpers/dateHelpers";
-import { IDespesa } from "../interfaces/IDespesa";
+import { formatNumber } from "../helpers/numberHelpers";
+import { IDespesa } from "../interfaces/Interfaces";
 import { getDespesasMonthYearEndpoint } from "../services/apiService";
 
 export default function DespesaPage() {
@@ -19,8 +21,19 @@ export default function DespesaPage() {
 
   return (
     <div>
-      Despesas em {month}
+      <DespesaHeader
+        total={calcularTotal(despesas)}
+        month={mesDespesa}
+        year={anoDespesa}
+      />
       <DespesaTable despesas={despesas} />
     </div>
   );
+}
+
+function calcularTotal(despesas: IDespesa[]) {
+  const total = despesas.reduce((acc, curr) => {
+    return acc + curr.valor;
+  }, 0);
+  return formatNumber(total);
 }
