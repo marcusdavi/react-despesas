@@ -5,33 +5,44 @@ import DespesaTable from "../components/DespesaTable";
 import { getMonth, getYear } from "../helpers/dateHelpers";
 import { formatNumber } from "../helpers/numberHelpers";
 import { IDespesa } from "../interfaces/Interfaces";
-import { getDespesasMonthYearEndpoint } from "../services/apiService";
+import { getDespesasEndpoint, getDespesasMonthYearEndpoint } from "../services/apiService";
 
 export default function DespesaPage() {
-  const { month } = useParams<{ month: string }>();
-  const [mesDespesa, setMesDespesa] = useState(getMonth(month));
-  const [anoDespesa, setAnoDespesa] = useState(getYear(month));
+  const { monthYear } = useParams<{ monthYear: string }>();
+  const [anos, setAnos] = useState<string[]>([]);
+  const monthSelected = getMonth(monthYear);
+  const yearSelected = getYear(monthYear);
   const [despesas, setDespesas] = useState<IDespesa[]>([]);
 
   useEffect(() => {
-    getDespesasMonthYearEndpoint("2021-01").then((despesasMes) => {
-      setDespesas(despesasMes);
+    getDespesasMonthYearEndpoint(yearSelected+"-"+monthSelected).then((response) => {
+      setDespesas(response);
     });
-  }, [mesDespesa, anoDespesa]);
+  }, [yearSelected,monthSelected]);
+
+  useEffect(() => {
+    getDespesasEndpoint().then((despesasMes) => {
+      const years = despesasMes.map(d => d.mes.substring(0,4));
+      setAnos(years.filter(onlyUnique));
+
+      function onlyUnique(value: any, index: any, self: string | any[]) {
+        return self.indexOf(value) === index;
+      }
+    });
+  }, []);
 
   return (
     <div>
       <DespesaHeader
-        total={calcularTotal(despesas)}
-        month={mesDespesa}
-        year={anoDespesa}
-      />
+        total={calculateTotal(despesas)}
+        month={monthSelected}
+        year={yearSelected} years={anos}      />
       <DespesaTable despesas={despesas} />
     </div>
   );
 }
 
-function calcularTotal(despesas: IDespesa[]) {
+function calculateTotal(despesas: IDespesa[]) {
   const total = despesas.reduce((acc, curr) => {
     return acc + curr.valor;
   }, 0);

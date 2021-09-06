@@ -1,14 +1,18 @@
-export function getMonthYearToday(){
+export function getMonthYearToday() {
   const date = new Date();
   const year = date.getFullYear();
-  const month = (date.getMonth() + 1).toString().padStart(2,"0");
+  const month = formatMonth(date.getMonth() + 1);
   return `${year}-${month}`;
 }
 
-export function getYear(monthYear: string){
-  return monthYear.substring(0,4);
+function formatMonth(month: number) {
+  return month.toString().padStart(2, "0");
 }
 
-export function getMonth(monthYear: string){
-  return monthYear.substring(5,7);
+export function getYear(monthYear: string) {
+  return monthYear.substring(0, 4);
+}
+
+export function getMonth(monthYear: string) {
+  return monthYear.substring(5, 7);
 }

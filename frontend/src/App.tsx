@@ -9,15 +9,15 @@ import DespesaPage from "./pages/DespesaPage";
 import { getMonthYearToday } from "./helpers/dateHelpers";
 
 export default function App() {
-  const month = getMonthYearToday();
+  const monthYear = getMonthYearToday();
 
   return (
     <Router>
       <Switch>
-        <Route path="/despesas/:month">
+        <Route path="/despesas/:monthYear">
           <DespesaPage />
         </Route>
-        <Redirect to={{ pathname: "/despesas/" + month }} />
+        <Redirect to={{ pathname: "/despesas/" + monthYear }} />
       </Switch>
     </Router>
   );

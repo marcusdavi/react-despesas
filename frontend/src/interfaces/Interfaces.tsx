@@ -15,4 +15,5 @@ export interface IDespesaHeaderProps{
   total: string
   month: string;
   year: string;
+  years: string[];
 }

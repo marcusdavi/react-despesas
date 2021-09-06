@@ -7,12 +7,19 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { IDespesaTableProps } from '../interfaces/Interfaces';
+import { formatNumber } from '../helpers/numberHelpers';
 
 const useStyles = makeStyles({
   table: {
     marginTop:"10px",
     minWidth: 650,
+    borderTop: "1px solid rgb(224, 224, 224)",
+    tableLayout: "fixed",
   },
+  header: {
+    fontWeight: "bold",
+    background: 'linear-gradient(45deg, #38A3A5 30%, #57CC99 90%)'
+  }
 });
 
 export default function DespesaTable(props: IDespesaTableProps) {
@@ -23,7 +30,7 @@ export default function DespesaTable(props: IDespesaTableProps) {
     <TableContainer component={Paper}>
       <Table className={classes.table} size="small" aria-label="a dense table">
         <TableHead>
-          <TableRow>
+          <TableRow className={classes.header}>
             <TableCell>Despesa</TableCell>
             <TableCell>Categoria</TableCell>
             <TableCell>Dia</TableCell>
@@ -38,7 +45,7 @@ export default function DespesaTable(props: IDespesaTableProps) {
               </TableCell>
               <TableCell>{despesa.categoria}</TableCell>
               <TableCell>{despesa.dia}</TableCell>
-              <TableCell align="right">{despesa.valor}</TableCell>
+              <TableCell align="right">{formatNumber(despesa.valor)}</TableCell>
             </TableRow>
           ))}
         </TableBody>
