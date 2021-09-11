@@ -38,7 +38,7 @@ server.post("/session/create", (req, res) => {
       .status(status)
       .json({ status, message: "E-mail not found or wrong password" });
   } else {
-    req.session.user = { nome: user.name, email: user.email };
+    req.session.user = { name: user.name, email: user.email };
     res.status(200).json(req.session.user);
   }
 });
