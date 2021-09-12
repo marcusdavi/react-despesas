@@ -37,10 +37,10 @@ O objetivo do app é mostrar o uso dos hooks useState, useEffect, useHistory, be
 </p>
 
 <p align="center">
-  <img src="/print-abstract.png">
+  <img src="/print-table-abstract.png">
 </p>
 
 <p align="center">
-  <img src="/print-detail.png">
+  <img src="/print-table-detail.png">
 </p>
 
