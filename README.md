@@ -32,14 +32,17 @@ O objetivo do app é mostrar o uso dos hooks useState, useEffect, useHistory, be
 
 
 ## Imagens do App
+#### Tela de Login
 <p align="center">
   <img src="/print-login.png">
 </p>
 
+#### Tabela de Despesas resumida
 <p align="center">
   <img src="/print-table-abstract.png">
 </p>
 
+#### Tabela de Despesas detalhada
 <p align="center">
   <img src="/print-table-detail.png">
 </p>
