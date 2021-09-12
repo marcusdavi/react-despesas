@@ -26,8 +26,21 @@ O objetivo do app é mostrar o uso dos hooks useState, useEffect, useHistory, be
 * Baixar as dependências - rodar o comando ``` yarn ```
 * Inicializar o app - rodar o comando ``` yarn start ```
 
-## Imagem do App
+## Usuários do sistema
+* email: "usuario@email.com", password: "1234"
+* email: "usuario2@email.com", password: "react"
+
+
+## Imagens do App
 <p align="center">
-  <img src="/print-sistema.png">
+  <img src="/print-sistema-01.png">
+</p>
+
+<p align="center">
+  <img src="/print-sistema-02.png">
+</p>
+
+<p align="center">
+  <img src="/print-sistema-03.png">
 </p>
 
