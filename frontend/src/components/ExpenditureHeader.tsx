@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { allMonths } from "../helpers/dateHelpers";
 import UserMenu from "./UserMenu";
+import { formatNumber } from "../helpers/numberHelpers";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -81,7 +82,7 @@ export default function ExpenditureHeader(props: IExpenditureHeaderProps) {
         </FormControl>
       </Box>
       <Box id="total" marginLeft="16px">
-        Total Expenditure: <strong>{total}</strong>
+        Total Expenditure: <strong>{formatNumber(total)}</strong>
       </Box>
       <UserMenu />
     </Box>

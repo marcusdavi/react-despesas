@@ -13,6 +13,13 @@ export interface IExpenditureAbstract {
   monthYear: string;
 }
 
+export interface IExpenditureData {
+  expendituresAbstract: IExpenditureAbstract[];
+  expenditures: IExpenditure[];
+  total: number;
+  yearsSelect: string[];
+}
+
 export interface IExpenditureTableAbstractProps {
   expenditures: IExpenditureAbstract[];
 }
@@ -22,7 +29,7 @@ export interface IExpenditureTableDetailProps {
 }
 
 export interface IExpenditureHeaderProps {
-  total: string;
+  total: number;
   month: string;
   year: string;
   yearsSelect: string[];
