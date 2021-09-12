@@ -7,7 +7,17 @@ export interface IExpenditure {
   day: string;
 }
 
-export interface IExpenditureTableProps {
+export interface IExpenditureAbstract {
+  category: string;
+  totalValue: number;
+  monthYear: string;
+}
+
+export interface IExpenditureTableAbstractProps {
+  expenditures: IExpenditureAbstract[];
+}
+
+export interface IExpenditureTableDetailProps {
   expenditures: IExpenditure[];
 }
 

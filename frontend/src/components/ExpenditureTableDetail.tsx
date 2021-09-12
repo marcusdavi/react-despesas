@@ -6,7 +6,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { IExpenditureTableProps } from '../interfaces/Interfaces';
+import { IExpenditureTableDetailProps } from '../interfaces/Interfaces';
 import { formatNumber } from '../helpers/numberHelpers';
 
 const useStyles = makeStyles({
@@ -22,7 +22,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function ExpenditureTable(props: IExpenditureTableProps) {
+export default function ExpenditureTableDetail(props: IExpenditureTableDetailProps) {
   const {expenditures} = props;
   const classes = useStyles();
    return (<TableContainer component={Paper}>
