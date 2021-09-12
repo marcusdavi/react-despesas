@@ -11,8 +11,10 @@ import { IExpenditureTableAbstractProps } from "../interfaces/Interfaces";
 
 const useStyles = makeStyles({
   table: {
-    marginTop: "10px",
-    minWidth: 650,
+    margin: "auto",
+    minWidth: 350,
+    maxWidth: 450,
+    textAlign: "center",
     borderTop: "1px solid rgb(224, 224, 224)",
     tableLayout: "fixed",
   },

@@ -104,7 +104,7 @@ function onlyUnique(value: any, index: any, self: string | any[]) {
 
 function calculateCategoryExpenditures(expenditures: IExpenditure[]) {
   const expendituresAbstract: IExpenditureAbstract[] = [];
-  const monthYear = expenditures[0].monthYear;
+  const monthYear = expenditures.length> 0 ? expenditures[0].monthYear : "";
   const categories = expenditures.map((e) => e.category).filter(onlyUnique);
   for (const category of categories) {
     const totalValue = expenditures
@@ -118,5 +118,5 @@ function calculateCategoryExpenditures(expenditures: IExpenditure[]) {
         monthYear
       })
   }
-  return expendituresAbstract;
+  return expendituresAbstract.sort((a ,b) => b.totalValue - a.totalValue);
 }
